@@ -1,0 +1,166 @@
+
+<odoo>
+
+  <!-- add tienda base form -->
+  <record id="view_tienda_base_form" model="ir.ui.view">
+    <field name="name">hamburgueseria.tienda.form</field>
+    <field name="model">hamburgueseria.tienda</field>
+    <field name="arch" type="xml">
+      <form string="Tienda Base">
+        <sheet>
+          <group>
+            <field name="name"/>
+            <field name="descripcion"/>
+            <field name="email"/>
+            <field name="telefono"/>
+            <field name="web"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+  <!-- add view tree for hamburgueseia.tienda -->
+  <record id="view_tienda_tree" model="ir.ui.view">
+    <field name="name">hamburgueseria.tienda.tree</field>
+    <field name="model">hamburgueseria.tienda</field>
+    <field name="arch" type="xml">
+      <tree string="Tienda">
+        <field name="name"/>
+        <field name="descripcion"/>
+        <field name="email"/>
+        <field name="telefono"/>
+        <field name="web"/>
+      </tree>
+    </field>
+  </record>
+  <!-- add hamburgueseria.tienda act_window -->
+  <record id="tienda_action" model="ir.actions.act_window">
+    <field name="name">Tienda</field>
+    <field name="res_model">hamburgueseria.tienda</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+
+
+
+  <!-- add hamburgueseria.promociones view tree-->
+  <record id="view_promociones_tree" model="ir.ui.view">
+    <field name="name">hamburgueseria.promocion.tree</field>
+    <field name="model">hamburgueseria.promocion</field>
+    <field name="arch" type="xml">
+      <tree string="Promociones">
+        <field name="name"/>
+        <field name="descripcion"/>
+        <field name="fecha_inicio"/>
+        <field name="fecha_fin"/>
+        <field name="precio"/>
+        <field name="tienda"/>
+      </tree>
+    </field>
+  </record>
+  <!-- add hamburgueseria.promociones form -->
+  <record id="view_promociones_form" model="ir.ui.view">
+    <field name="name">hamburgueseria.promocion.form</field>
+    <field name="model">hamburgueseria.promocion</field>
+    <field name="arch" type="xml">
+      <form string="Promociones">
+        <sheet>
+          <group>
+            <field name="name"/>
+            <field name="descripcion"/>
+            <field name="fecha_inicio"/>
+            <field name="fecha_fin"/>
+            <field name="precio"/>
+            <field name="tienda"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+  <!-- add hamburgueseria.promociones act_window -->
+  <record id="promociones_action" model="ir.actions.act_window">
+    <field name="name">Promociones</field>
+    <field name="res_model">hamburgueseria.promocion</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <!-- add hamburgueseria.hamburguesa tree view-->
+  <record id="view_hamburguesa_tree" model="ir.ui.view">
+    <field name="name">hamburgueseria.hamburguesa.tree</field>
+    <field name="model">hamburgueseria.hamburguesa</field>
+    <field name="arch" type="xml">
+      <tree string="Hamburguesa">
+        <field name="name"/>
+        <field name="descripcion"/>
+        <field name="precio"/>
+        <field name="promocion"/>
+      </tree>
+    </field>
+  </record>
+  <!-- add hamburgueseria.hamburguesa form -->
+  <record id="view_hamburguesa_form" model="ir.ui.view">
+    <field name="name">hamburgueseria.hamburguesa.form</field>
+    <field name="model">hamburgueseria.hamburguesa</field>
+    <field name="arch" type="xml">
+      <form string="Hamburguesa">
+        <sheet>
+          <group>
+            <field name="name"/>
+            <field name="descripcion"/>
+            <field name="precio"/>
+            <field name="promocion"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+  <!-- add hamburgueseria.hamburguesa act_window -->
+  <record id="hamburguesa_action" model="ir.actions.act_window">
+    <field name="name">Hamburguesa</field>
+    <field name="res_model">hamburgueseria.hamburguesa</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <!-- add hamburgueseria.bebida tree view-->
+  <record id="view_bebida_tree" model="ir.ui.view">
+    <field name="name">hamburgueseria.bebida.tree</field>
+    <field name="model">hamburgueseria.bebida</field>
+    <field name="arch" type="xml">
+      <tree string="Bebida">
+        <field name="name"/>
+        <field name="descripcion"/>
+        <field name="precio"/>
+        <field name="promocion"/>
+      </tree>
+    </field> 
+  </record>
+  <!-- add hamburgueseria.bebida form -->
+  <record id="view_bebida_form" model="ir.ui.view">
+    <field name="name">hamburgueseria.bebida.form</field>
+    <field name="model">hamburgueseria.bebida</field>
+    <field name="arch" type="xml">
+      <form string="Bebida">
+        <sheet>
+          <group>
+            <field name="name"/>
+            <field name="descripcion"/>
+            <field name="precio"/>
+            <field name="promocion"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+  <!-- add hamburgueseria.bebida act_window -->
+  <record id="bebida_action" model="ir.actions.act_window">
+    <field name="name">Bebida</field>
+    <field name="res_model">hamburgueseria.bebida</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+  <!-- add tienda menuitem-->
+  <menuitem id="hamburgueseria_menu" name="Hamburgueseria" />
+  <menuitem id="tienda_menu" name="Tienda" parent="hamburgueseria_menu" action="tienda_action" sequence="5"/>
+  <menuitem id="promociones_menu" name="Promociones" parent="hamburgueseria_menu" action="promociones_action" sequence="10"/>
+  <menuitem id="hamburguesa_menu" name="Hamburguesa" parent="hamburgueseria_menu" action="hamburguesa_action" sequence="15"/>
+  <menuitem id="bebida_menu" name="Bebida" parent="hamburgueseria_menu" action="bebida_action" sequence="20"/>
+</odoo>
